@@ -2,14 +2,10 @@
 
 Servo myservo;
 
-
 //10 is ongeveer haaks     -> Top: Open   Bodem: Dicht   Naam: Open
 //105 is ongeveer parallel -> Top: Dicht  Bodem: Open    Naam: Closed
 
 int pos = 0;
-
-bool Open = false;
-bool closed = false;
 
 void setup() {
   Serial.begin(9600);
@@ -49,7 +45,6 @@ void Top() {
 
 void Bottom() {
   Serial.println("Opening Bottom...");
-
   while (myservo.read() < 110) { //adding short delays in this loop also doesn't work
     pos++;
     myservo.write(pos);
